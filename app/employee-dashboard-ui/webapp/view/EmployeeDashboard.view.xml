@@ -39,7 +39,8 @@
 
                     <Button
                         id="maintenanceBtn"
-                        text="Maintenance History"/>
+                        text="Maintenance History"
+                        press="onMaintenanceHistory"/>
 
                 </HBox>
 
