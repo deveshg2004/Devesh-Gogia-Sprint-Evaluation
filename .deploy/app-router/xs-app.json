@@ -19,7 +19,10 @@
       "target": "/asset.lifecycle.managerdashboardui/$1",
       "destination": "srv-api",
       "authenticationType": "xsuaa",
-      "scope": "$XSAPPNAME.Manager",
+      "scope": [
+        "$XSAPPNAME.Admin",
+        "$XSAPPNAME.Manager"
+      ],
       "csrfProtection": true
     },
     {
@@ -27,7 +30,11 @@
       "target": "/asset.lifecycle.employeedashboardui/$1",
       "destination": "srv-api",
       "authenticationType": "xsuaa",
-      "scope": "$XSAPPNAME.Employee",
+      "scope": [
+        "$XSAPPNAME.Admin",
+        "$XSAPPNAME.Manager",
+        "$XSAPPNAME.Employee"
+      ],
       "csrfProtection": true
     },
     {
