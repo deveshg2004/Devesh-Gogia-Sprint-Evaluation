@@ -276,8 +276,10 @@
             const dashboardArea = document.getElementById('dashboardArea');
 
             dashboardArea.innerHTML = dashboards.map((dashboard) => {
-                const allowed = dashboard.role === currentRole;
-                const statusText = allowed ? '✓ Your dashboard' : '🔒 Restricted for your role';
+                const allowed = currentRole === 'Admin' || dashboard.role === currentRole;
+                const statusText = allowed
+                    ? (currentRole === 'Admin' && dashboard.role !== 'Admin' ? '✓ Admin access' : '✓ Your dashboard')
+                    : '🔒 Restricted for your role';
 
                 return `
                     <article class="card ${allowed ? 'available' : 'locked'}">
@@ -323,7 +325,9 @@
                 }
 
                 welcomeTitle.textContent = `Welcome, ${role}`;
-                welcomeSubtitle.textContent = 'All dashboards are shown for demonstration. Only your assigned dashboard can be opened.';
+                welcomeSubtitle.textContent = role === 'Admin'
+                    ? 'All dashboards are available to Admin users.'
+                    : 'All dashboards are shown for demonstration. Only your assigned dashboard can be opened.';
                 roleBadge.textContent = `${role} access`;
                 roleBadge.hidden = false;
 
