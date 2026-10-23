@@ -10,6 +10,21 @@ module.exports = cds.service.impl(async function () {
         AssetAssignmentsSrv,
         ArchiveRecordsSrv
     } = this.entities;
+
+    this.on('getCurrentUserContext', (req) => {
+        const role = req.user.is('Admin')
+            ? 'Admin'
+            : req.user.is('Manager')
+                ? 'Manager'
+                : req.user.is('Employee')
+                    ? 'Employee'
+                    : 'Unknown';
+
+        return {
+            role,
+            userId: req.user.id
+        };
+    });
     
     this.before('createEmployee', async (req) => {
 
