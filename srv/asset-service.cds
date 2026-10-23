@@ -3,6 +3,13 @@ using { asset.lifecycle as db } from '../db/schema';
 @(requires: 'authenticated-user')
 service AssetLifecycleService {
 
+    type CurrentUserContext {
+        role   : String;
+        userId : String;
+    }
+
+    function getCurrentUserContext() returns CurrentUserContext;
+
     @(requires: 'Admin')
     entity DepartmentsSrv as projection on db.Department;
 
@@ -216,5 +223,3 @@ service AssetLifecycleService {
         archive_id : UUID
     ) returns String;
 }
-
-
