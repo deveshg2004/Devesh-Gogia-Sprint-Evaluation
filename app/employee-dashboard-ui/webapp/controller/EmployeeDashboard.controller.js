@@ -123,18 +123,6 @@ sap.ui.define([
 
             },
 
-            onMyRequests() {
-
-                this.byId("contentTitle").setText("My Requests");
-
-                this.byId("contentText").setText(
-                    "REQ001 - Approved\n" +
-                    "REQ002 - Pending\n" +
-                    "REQ003 - Completed"
-                );
-
-            },
-
             onMaintenanceHistory() {
 
                 this.byId("contentTitle").setText("Maintenance History");
