@@ -38,15 +38,8 @@
                         class="sapUiTinyMarginEnd"/>
 
                     <Button
-                        id="requestsBtn"
-                        text="My Requests"
-                        press="onMyRequests"
-                        class="sapUiTinyMarginEnd"/>
-
-                    <Button
                         id="maintenanceBtn"
-                        text="Maintenance History"
-                        press="onMaintenanceHistory"/>
+                        text="Maintenance History"/>
 
                 </HBox>
 
@@ -65,7 +58,7 @@
                 <Text
                     id="contentText"
                     wrapping="true"
-                    text="Choose My Profile, My Assets, My Requests, or Maintenance History."/>
+                    text="Choose My Profile, My Assets, or Maintenance History."/>
 
                 <Title
                     id="employeeKpiTitle"
