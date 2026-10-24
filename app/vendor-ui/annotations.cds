@@ -38,6 +38,24 @@ annotate service.VendorsSrv with @(
     ],
     UI.LineItem : [
         {
+            $Type : 'UI.DataFieldForAction',
+            Action : 'AssetLifecycleService.EntityContainer/createVendor',
+            Label : 'Create Vendor',
+            Inline : false,
+        },
+        {
+            $Type : 'UI.DataFieldForAction',
+            Action : 'AssetLifecycleService.EntityContainer/updateVendor',
+            Label : 'Update Vendor',
+            Inline : false,
+        },
+        {
+            $Type : 'UI.DataFieldForAction',
+            Action : 'AssetLifecycleService.EntityContainer/deleteVendor',
+            Label : 'Delete Vendor',
+            Inline : false,
+        },
+        {
             $Type : 'UI.DataField',
             Label : 'Vendor Name',
             Value : name,
