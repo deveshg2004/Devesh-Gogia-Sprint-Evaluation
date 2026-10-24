@@ -22,6 +22,25 @@ service AssetLifecycleService {
     ]
     entity VendorsSrv as projection on db.Vendor;
 
+    @(requires: 'Admin')
+    action createVendor(
+        vendor_id : UUID,
+        name      : String,
+        email     : String
+    ) returns array of VendorsSrv;
+
+    @(requires: 'Admin')
+    action updateVendor(
+        vendor_id : UUID,
+        name      : String,
+        email     : String
+    ) returns String;
+
+    @(requires: 'Admin')
+    action deleteVendor(
+        vendor_id : UUID
+    ) returns String;
+
     @(requires: ['Admin','Manager'])
     entity AssetCategoriesSrv as projection on db.AssetCategory;
 
