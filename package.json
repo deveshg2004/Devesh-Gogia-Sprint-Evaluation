@@ -37,8 +37,7 @@
     "app/maintenance-ui",
     "app/ownershipledger-ui",
     "app/archive-ui",
-    "app/department-ui",
-    "app/vendor-ui"
+    "app/department-ui"
   ],
   "workspaces": [
     "app/*"
