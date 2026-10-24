@@ -1,4 +1,3 @@
-
 using from './asset-ui/annotations';
 
 using from './employee-ui/annotations';
@@ -16,6 +15,8 @@ using from './dashboard-ui/annotations';
 using from './manager-dashboard-ui/annotations';
 
 using from './department-ui/annotations';
+
+using from './vendor-ui/annotations';
 
 using from './reports-ui/annotations';
 
