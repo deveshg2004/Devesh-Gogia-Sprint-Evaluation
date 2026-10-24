@@ -30,28 +30,28 @@
                     <StandardListItem
                         id="assetReport"
                         title="Asset Report"
-                        description="View and export asset inventory"
+                        description="View asset inventory"
                         type="Navigation"
                         press=".onAssetReport"/>
 
                     <StandardListItem
                         id="employeeReport"
                         title="Employee Report"
-                        description="View and export employee details"
+                        description="View employee details"
                         type="Navigation"
                         press=".onEmployeeReport"/>
 
                     <StandardListItem
                         id="maintenanceReport"
                         title="Maintenance Report"
-                        description="View and export maintenance records"
+                        description="View maintenance records"
                         type="Navigation"
                         press=".onMaintenanceReport"/>
 
                     <StandardListItem
                         id="assignmentReport"
                         title="Assignment Report"
-                        description="View and export asset assignments"
+                        description="View asset assignments"
                         type="Navigation"
                         press=".onAssignmentReport"/>
 
@@ -59,33 +59,38 @@
 
                 <Title
                     id="exportTitle"
-                    text="Export Functions"
+                    text="Download PDF Reports"
                     level="H2"
                     class="sapUiMediumMarginTop"/>
+
+                <Text
+                    id="pdfDescription"
+                    text="Generate and download a PDF snapshot of each report."
+                    class="sapUiSmallMarginBottom"/>
 
                 <VBox id="exportButtons">
 
                     <Button
                         id="btnExportAssets"
-                        text="Export Asset Report"
+                        text="Download Asset Report PDF"
                         type="Emphasized"
                         press=".onExportAssets"/>
 
                     <Button
                         id="btnExportEmployees"
-                        text="Export Employee Report"
+                        text="Download Employee Report PDF"
                         class="sapUiSmallMarginTop"
                         press=".onExportEmployees"/>
 
                     <Button
                         id="btnExportMaintenance"
-                        text="Export Maintenance Report"
+                        text="Download Maintenance Report PDF"
                         class="sapUiSmallMarginTop"
                         press=".onExportMaintenance"/>
 
                     <Button
                         id="btnExportAssignments"
-                        text="Export Assignment Report"
+                        text="Download Assignment Report PDF"
                         class="sapUiSmallMarginTop"
                         press=".onExportAssignments"/>
 
