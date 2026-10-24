@@ -2,169 +2,75 @@
     controllerName="asset.lifecycle.dashboardui.controller.AssetDashboard"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
-    xmlns:viz="sap.viz.ui5.controls"
-    xmlns:core="sap.ui.core">
-
-    <Page
-        id="dashboardPage"
-        title="Admin Dashboard">
-
+    xmlns:viz="sap.viz.ui5.controls">
+    <Page id="dashboardPage" title="Admin Dashboard">
         <content>
-
-            <VBox
-                id="dashboardVBox"
-                class="sapUiMediumMargin">
-
-
-                <Title
-                    id="kpiTitle"
-                    text="Dashboard KPIs"
-                    level="H1"/>
-
-                <HBox
-                    id="kpiHBox"
-                    justifyContent="SpaceAround"
-                    wrap="Wrap">
-
-                    <GenericTile
-                        id="tileTotalAssets"
-                        header="Total Assets">
-                        <TileContent id="tcTotalAssets">
-                            <NumericContent
-                                id="ncTotalAssets"
-                                value="15"
-                                valueColor="Good"/>
-                        </TileContent>
-                    </GenericTile>
-
-                    <GenericTile
-                        id="tileAssignedAssets"
-                        header="Assigned Assets">
-                        <TileContent id="tcAssignedAssets">
-                            <NumericContent
-                                id="ncAssignedAssets"
-                                value="8"
-                                valueColor="Neutral"/>
-                        </TileContent>
-                    </GenericTile>
-
-                    <GenericTile
-                        id="tileAvailableAssets"
-                        header="Available Assets">
-                        <TileContent id="tcAvailableAssets">
-                            <NumericContent
-                                id="ncAvailableAssets"
-                                value="4"
-                                valueColor="Good"/>
-                        </TileContent>
-                    </GenericTile>
-
-                    <GenericTile
-                        id="tileMaintenance"
-                        header="Under Maintenance">
-                        <TileContent id="tcMaintenance">
-                            <NumericContent
-                                id="ncMaintenance"
-                                value="2"
-                                valueColor="Critical"/>
-                        </TileContent>
-                    </GenericTile>
-
-                    <GenericTile
-                        id="tileRetired"
-                        header="Retired Assets">
-                        <TileContent id="tcRetired">
-                            <NumericContent
-                                id="ncRetired"
-                                value="1"
-                                valueColor="Neutral"/>
-                        </TileContent>
-                    </GenericTile>
-
-                    <GenericTile
-                        id="tileArchived"
-                        header="Archived Assets">
-                        <TileContent id="tcArchived">
-                            <NumericContent
-                                id="ncArchived"
-                                value="1"
-                                valueColor="Error"/>
-                        </TileContent>
-                    </GenericTile>
-
+            <VBox id="dashboardVBox" class="dashboardPage sapUiMediumMargin">
+                <HBox justifyContent="SpaceBetween" alignItems="Center" class="dashboardHeader">
+                    <VBox>
+                        <Title text="Dashboard KPIs" level="H1" class="dashboardSectionTitle"/>
+                        <Text text="Live overview of your IT asset estate" class="dashboardSubtitle"/>
+                    </VBox>
+                    <VBox alignItems="End">
+                        <Button text="Refresh" icon="sap-icon://refresh" type="Transparent" press=".onRefresh"/>
+                        <Text text="Last updated: {dashboard>/lastUpdated}" class="dashboardUpdatedText"/>
+                    </VBox>
                 </HBox>
 
-<Title
-    id="categoryChartTitle"
-    text="Assets by Category"
-    level="H2"
-    class="sapUiMediumMarginTop"/>
+                <HBox id="kpiHBox" class="kpiRow" justifyContent="SpaceBetween" wrap="Wrap">
+                    <GenericTile id="tileTotalAssets" header="Total Assets" class="dashboardKpiTile">
+                        <TileContent footer="Entire inventory">
+                            <NumericContent value="{dashboard>/kpis/total}" valueColor="Neutral" icon="sap-icon://inventory"/>
+                        </TileContent>
+                    </GenericTile>
+                    <GenericTile id="tileAssignedAssets" header="Assigned Assets" class="dashboardKpiTile">
+                        <TileContent footer="Currently in use">
+                            <NumericContent value="{dashboard>/kpis/assigned}" valueColor="Good" icon="sap-icon://employee"/>
+                        </TileContent>
+                    </GenericTile>
+                    <GenericTile id="tileAvailableAssets" header="Available Assets" class="dashboardKpiTile">
+                        <TileContent footer="Ready to assign">
+                            <NumericContent value="{dashboard>/kpis/available}" valueColor="Good" icon="sap-icon://accept"/>
+                        </TileContent>
+                    </GenericTile>
+                    <GenericTile id="tileMaintenance" header="Under Maintenance" class="dashboardKpiTile">
+                        <TileContent footer="Needs attention">
+                            <NumericContent value="{dashboard>/kpis/maintenance}" valueColor="Critical" icon="sap-icon://wrench"/>
+                        </TileContent>
+                    </GenericTile>
+                    <GenericTile id="tileRetired" header="Retired Assets" class="dashboardKpiTile">
+                        <TileContent footer="No longer active">
+                            <NumericContent value="{dashboard>/kpis/retired}" valueColor="Neutral" icon="sap-icon://decline"/>
+                        </TileContent>
+                    </GenericTile>
+                    <GenericTile id="tileArchived" header="Archived Assets" class="dashboardKpiTile">
+                        <TileContent footer="Historical records">
+                            <NumericContent value="{dashboard>/kpis/archived}" valueColor="Error" icon="sap-icon://archive"/>
+                        </TileContent>
+                    </GenericTile>
+                </HBox>
 
-<viz:VizFrame
-    id="assetCategoryChart"
-    vizType="donut"
-    width="100%"
-    height="400px"/>
+                <Title text="Asset Analytics" level="H2" class="dashboardSectionTitle sapUiMediumMarginTop"/>
+                <HBox id="analyticsRow" class="analyticsRow" justifyContent="SpaceBetween" wrap="Wrap">
+                    <Panel headerText="Assets by Category" class="analyticsPanel" expandable="false">
+                        <viz:VizFrame id="assetCategoryChart" vizType="donut" width="100%" height="340px"/>
+                    </Panel>
+                    <Panel headerText="Asset Status Distribution" class="analyticsPanel" expandable="false">
+                        <viz:VizFrame id="assetStatusChart" vizType="donut" width="100%" height="340px"/>
+                    </Panel>
+                </HBox>
 
-                <Title
-                    id="navigationTitle"
-                    text="Quick Navigation"
-                    level="H2"
-                    class="sapUiMediumMarginTop"/>
-
-<HBox
-    id="navigationTiles"
-    justifyContent="SpaceAround"
-    wrap="Wrap">
-
-    <GenericTile
-        id="navAssetTile"
-        header="Asset Management"
-        subheader="Manage Assets"
-        press=".onAssetManagement"/>
-
-    <GenericTile
-        id="navEmployeeTile"
-        header="Employee Management"
-        subheader="Manage Employees"
-        press=".onEmployeeManagement"/>
-
-    <GenericTile
-        id="navAssignmentTile"
-        header="Asset Assignment"
-        subheader="Assign Assets"
-        press=".onAssignmentManagement"/>
-
-    <GenericTile
-        id="navMaintenanceTile"
-        header="Maintenance"
-        subheader="Track Repairs"
-        press=".onMaintenanceManagement"/>
-
-    <GenericTile
-        id="navOwnershipTile"
-        header="Ownership Ledger"
-        subheader="Asset History"
-        press=".onOwnershipLedger"/>
-
-    <GenericTile
-        id="navArchiveTile"
-        header="Archive Management"
-        subheader="Archived Assets"
-        press=".onArchiveManagement"/>
-
-    <GenericTile
-        id="navReportsTile"
-        header="Reports &amp; Export"
-        subheader="Business Reports"
-        press=".onReports"/>
-
-</HBox>
-
+                <Title text="Quick Navigation" level="H2" class="dashboardSectionTitle sapUiMediumMarginTop"/>
+                <HBox id="navigationTiles" class="navigationRow" justifyContent="SpaceBetween" wrap="Wrap">
+                    <GenericTile id="navAssetTile" header="Asset Management" subheader="Manage Assets" press=".onAssetManagement" class="navigationTile"/>
+                    <GenericTile id="navEmployeeTile" header="Employee Management" subheader="Manage Employees" press=".onEmployeeManagement" class="navigationTile"/>
+                    <GenericTile id="navAssignmentTile" header="Asset Assignment" subheader="Assign Assets" press=".onAssignmentManagement" class="navigationTile"/>
+                    <GenericTile id="navMaintenanceTile" header="Maintenance" subheader="Track Repairs" press=".onMaintenanceManagement" class="navigationTile"/>
+                    <GenericTile id="navOwnershipTile" header="Ownership Ledger" subheader="Asset History" press=".onOwnershipLedger" class="navigationTile"/>
+                    <GenericTile id="navArchiveTile" header="Archive Management" subheader="Archived Assets" press=".onArchiveManagement" class="navigationTile"/>
+                    <GenericTile id="navReportsTile" header="Reports &amp; Export" subheader="Business Reports" press=".onReports" class="navigationTile"/>
+                </HBox>
             </VBox>
-
         </content>
-
     </Page>
-
 </mvc:View>
