@@ -106,20 +106,26 @@ sap.ui.define([
                 window.location.href =
                 "/asset.lifecycle.archiveui/index.html";
             },
+
             onReports() {
-    window.location.href =
-    "/asset.lifecycle.reportsui/index.html";
-},
+                window.location.href =
+                "/asset.lifecycle.reportsui/index.html";
+            },
 
-onManagerDashboard() {
-    window.location.href =
-    "/asset.lifecycle.managerdashboardui/index.html";
-},
+            onVendorManagement() {
+                window.location.href =
+                "/asset.lifecycle.vendorui/index.html";
+            },
 
-onEmployeeDashboard() {
-    window.location.href =
-    "/asset.lifecycle.employeedashboardui/index.html";
-},
+            onManagerDashboard() {
+                window.location.href =
+                "/asset.lifecycle.managerdashboardui/index.html";
+            },
+
+            onEmployeeDashboard() {
+                window.location.href =
+                "/asset.lifecycle.employeedashboardui/index.html";
+            },
 
         }
     );
