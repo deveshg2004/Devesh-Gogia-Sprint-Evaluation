@@ -16,7 +16,10 @@ service AssetLifecycleService {
     @(requires: ['Admin','Manager'])
     entity EmployeesSrv as projection on db.Employee;
 
-    @(requires: ['Admin','Manager'])
+    @restrict: [
+        { grant: 'READ', to: ['Admin', 'Manager'] },
+        { grant: ['CREATE', 'UPDATE', 'DELETE'], to: 'Admin' }
+    ]
     entity VendorsSrv as projection on db.Vendor;
 
     @(requires: ['Admin','Manager'])
