@@ -18,6 +18,7 @@
     "watch-dashboard-ui": "cds watch --open asset.lifecycle.dashboardui/index.html?sap-ui-xx-viewCache=false --livereload false",
     "watch-manager-dashboard-ui": "cds watch --open asset.lifecycle.managerdashboardui/index.html?sap-ui-xx-viewCache=false --livereload false",
     "watch-department-ui": "cds watch --open asset.lifecycle.departmentui/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-vendor-ui": "cds watch --open asset.lifecycle.vendorui/index.html?sap-ui-xx-viewCache=false --livereload false",
     "watch-reports-ui": "cds watch --open asset.lifecycle.reportsui/index.html?sap-ui-xx-viewCache=false --livereload false",
     "watch-employee-dashboard-ui": "cds watch --open asset.lifecycle.employeedashboardui/index.html?sap-ui-xx-viewCache=false --livereload false",
     "build:apps": "node scripts/build-apps.js"

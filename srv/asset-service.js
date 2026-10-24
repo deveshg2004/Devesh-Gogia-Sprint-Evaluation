@@ -5,6 +5,7 @@ module.exports = cds.service.impl(async function () {
         const {
         DepartmentsSrv,
         EmployeesSrv,
+        VendorsSrv,
         AssetsSrv,
         MaintenanceRecordsSrv,
         AssetAssignmentsSrv,
@@ -35,6 +36,18 @@ module.exports = cds.service.impl(async function () {
     }
 
 });
+
+    this.before(['CREATE', 'UPDATE'], VendorsSrv, async (req) => {
+        const { name, email } = req.data;
+
+        if (req.event === 'CREATE' && (!name || !name.trim())) {
+            req.error(400, 'Vendor name is required');
+        }
+
+        if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            req.error(400, 'Invalid vendor email address');
+        }
+    });
 
 
 this.before('createAsset', async (req) => {
