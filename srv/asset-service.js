@@ -119,6 +119,42 @@ this.before('createMaintenanceRecord', async (req) => {
 
         return `Maintenance record ${maintenanceId} completed successfully`;
     });
+
+    // Vendor CRUD
+
+    this.on('createVendor', async (req) => {
+        const data = req.data;
+        const tx = cds.tx(req);
+
+        await tx.run(
+            INSERT.into(VendorsSrv).entries(data)
+        );
+
+        return await tx.read(VendorsSrv)
+            .where({ vendor_id: data.vendor_id });
+    });
+
+    this.on('updateVendor', async (req) => {
+        const { vendor_id, name, email } = req.data;
+        const tx = cds.tx(req);
+
+        await tx.update(VendorsSrv)
+            .with({ name, email })
+            .where({ vendor_id });
+
+        return 'Vendor updated successfully';
+    });
+
+    this.on('deleteVendor', async (req) => {
+        const { vendor_id } = req.data;
+        const tx = cds.tx(req);
+
+        await tx.delete(VendorsSrv)
+            .where({ vendor_id });
+
+        return 'Vendor deleted successfully';
+    });
+
         this.on('createEmployee', async (req) => {
 
         const data = req.data;
