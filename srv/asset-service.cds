@@ -160,6 +160,8 @@ service AssetLifecycleService {
     @(requires: ['Admin','Manager'])
     action createAssetAssignment(
         assignment_id        : UUID,
+        asset_tag            : String,
+        employee_email       : String,
         assigned_date        : DateTime,
         expected_return_date : DateTime,
         assignment_status    : String,
