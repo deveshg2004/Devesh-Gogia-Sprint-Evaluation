@@ -159,6 +159,12 @@
         subheader="Business Reports"
         press=".onReports"/>
 
+    <GenericTile
+        id="navVendorTile"
+        header="Vendor Management"
+        subheader="Manage Vendors"
+        press=".onVendorManagement"/>
+
 </HBox>
 
             </VBox>
