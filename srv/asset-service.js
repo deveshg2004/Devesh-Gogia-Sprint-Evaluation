@@ -61,6 +61,48 @@ this.before('createMaintenanceRecord', async (req) => {
 
     this.on('AssignAsset', async (req) => {
         const { assetId, employeeId } = req.data;
+        const tx = cds.tx(req);
+
+        const asset = await tx.read(AssetsSrv)
+            .where({ asset_id: assetId });
+        const employee = await tx.read(EmployeesSrv)
+            .where({ employee_id: employeeId });
+
+        if (!asset.length) req.error(404, `Asset ${assetId} not found`);
+        if (!employee.length) req.error(404, `Employee ${employeeId} not found`);
+
+        if (asset[0].status !== 'AVAILABLE') {
+            req.error(400, `Asset ${assetId} cannot be assigned because its current status is ${asset[0].status}`);
+        }
+
+        if (employee[0].status !== 'ACTIVE') {
+            req.error(400, `Employee ${employeeId} is not active and cannot receive an asset`);
+        }
+
+        const actor = await tx.read(EmployeesSrv)
+            .where({ email: req.user.id });
+
+        const assignedDate = new Date().toISOString();
+        const assignmentId = cds.utils.uuid();
+
+        await tx.update(AssetsSrv)
+            .with({
+                status: 'ASSIGNED',
+                current_holder_employee_id: employeeId,
+                first_distribution_date: asset[0].first_distribution_date || new Date().toISOString().slice(0, 10)
+            })
+            .where({ asset_id: assetId });
+
+        await tx.run(
+            INSERT.into(AssetAssignmentsSrv).entries({
+                assignment_id: assignmentId,
+                asset_asset_id: assetId,
+                employee_employee_id: employeeId,
+                assigned_by_employee_id: actor.length ? actor[0].employee_id : null,
+                assigned_date: assignedDate,
+                assignment_status: 'ASSIGNED'
+            })
+        );
 
         return `Asset ${assetId} assigned to employee ${employeeId} successfully`;
     });
