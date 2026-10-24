@@ -130,6 +130,12 @@
         press=".onEmployeeManagement"/>
 
     <GenericTile
+        id="navVendorTile"
+        header="Vendor Management"
+        subheader="Maintain Vendors"
+        press=".onVendorManagement"/>
+
+    <GenericTile
         id="navAssignmentTile"
         header="Asset Assignment"
         subheader="Assign Assets"
