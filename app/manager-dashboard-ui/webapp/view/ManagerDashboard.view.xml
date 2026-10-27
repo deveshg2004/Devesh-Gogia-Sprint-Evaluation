@@ -14,7 +14,6 @@
                 id="managerDashboardVBox"
                 class="sapUiMediumMargin">
 
-
                 <Title
                     id="managerKpiTitle"
                     text="Manager KPIs"
@@ -72,16 +71,16 @@
                 </HBox>
 
                 <Title
-    id="managerChartTitle"
-    text="Assets Assigned by Department"
-    level="H2"
-    class="sapUiMediumMarginTop"/>
+                    id="managerChartTitle"
+                    text="Assets Assigned by Department"
+                    level="H2"
+                    class="sapUiMediumMarginTop"/>
 
-<viz:VizFrame
-    id="departmentBarChart"
-    vizType="bar"
-    width="100%"
-    height="400px"/>
+                <viz:VizFrame
+                    id="departmentBarChart"
+                    vizType="bar"
+                    width="100%"
+                    height="400px"/>
 
                 <Title
                     id="managerNavigationTitle"
@@ -89,36 +88,42 @@
                     level="H2"
                     class="sapUiMediumMarginTop"/>
 
-<HBox
-    id="managerNavigationTiles"
-    justifyContent="SpaceAround"
-    wrap="Wrap">
+                <HBox
+                    id="managerNavigationTiles"
+                    justifyContent="SpaceAround"
+                    wrap="Wrap">
 
-    <GenericTile
-        id="managerNavAssetTile"
-        header="Asset Management"
-        subheader="Manage Assets"
-        press=".onAssetManagement"/>
+                    <GenericTile
+                        id="managerNavAssetTile"
+                        header="Asset Management"
+                        subheader="Manage Assets"
+                        press=".onAssetManagement"/>
 
-    <GenericTile
-        id="managerNavEmployeeTile"
-        header="Employee Management"
-        subheader="Manage Employees"
-        press=".onEmployeeManagement"/>
+                    <GenericTile
+                        id="managerNavEmployeeTile"
+                        header="Employee Management"
+                        subheader="Manage Employees"
+                        press=".onEmployeeManagement"/>
 
-    <GenericTile
-        id="managerNavAssignmentTile"
-        header="Asset Assignment"
-        subheader="Assign Assets"
-        press=".onAssignmentManagement"/>
+                    <GenericTile
+                        id="managerNavAssignmentTile"
+                        header="Asset Assignment"
+                        subheader="Assign Assets"
+                        press=".onAssignmentManagement"/>
 
-    <GenericTile
-        id="managerNavMaintenanceTile"
-        header="Maintenance"
-        subheader="Track Repairs"
-        press=".onMaintenanceManagement"/>
+                    <GenericTile
+                        id="managerNavMaintenanceTile"
+                        header="Maintenance"
+                        subheader="Track Repairs"
+                        press=".onMaintenanceManagement"/>
 
-</HBox>
+                    <GenericTile
+                        id="managerNavReportsTile"
+                        header="Reports &amp; Export"
+                        subheader="View and download reports"
+                        press=".onReports"/>
+
+                </HBox>
 
             </VBox>
 
