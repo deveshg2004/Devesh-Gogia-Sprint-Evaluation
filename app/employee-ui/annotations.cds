@@ -21,6 +21,11 @@ annotate service.EmployeesSrv with @(
         Data : [
             {
                 $Type : 'UI.DataField',
+                Label : 'Employee ID',
+                Value : employee_id,
+            },
+            {
+                $Type : 'UI.DataField',
                 Label : 'Employee Name',
                 Value : full_name,
             },
@@ -58,48 +63,57 @@ annotate service.EmployeesSrv with @(
 
     UI.LineItem : [
 
-
+        {
+            $Type : 'UI.DataFieldForAction',
+            Action : 'AssetLifecycleService.EntityContainer/createEmployee',
+            Label : 'Create Employee',
+            Inline : false
+        },
 
         {
-    $Type : 'UI.DataFieldForAction',
-    Action : 'AssetLifecycleService.EntityContainer/createEmployee',
-    Label : 'Create Employee',
-    Inline : false
-},
+            $Type : 'UI.DataFieldForAction',
+            Action : 'AssetLifecycleService.EntityContainer/updateEmployee',
+            Label : 'Update Employee',
+            Inline : false
+        },
 
-{
-    $Type : 'UI.DataFieldForAction',
-    Action : 'AssetLifecycleService.EntityContainer/updateEmployee',
-    Label : 'Update Employee',
-    Inline : false
-},
+        {
+            $Type : 'UI.DataFieldForAction',
+            Action : 'AssetLifecycleService.EntityContainer/deleteEmployee',
+            Label : 'Delete Employee',
+            Inline : false
+        },
 
-{
-    $Type : 'UI.DataFieldForAction',
-    Action : 'AssetLifecycleService.EntityContainer/deleteEmployee',
-    Label : 'Delete Employee',
-    Inline : false
-},
+        {
+            $Type : 'UI.DataField',
+            Label : 'Employee ID',
+            Value : employee_id,
+        },
+
         {
             $Type : 'UI.DataField',
             Label : 'Employee Name',
             Value : full_name,
         },
+
         {
             $Type : 'UI.DataField',
             Label : 'Email',
             Value : email,
         },
+
         {
             $Type : 'UI.DataField',
             Label : 'Phone Number',
             Value : phone,
         },
+
         {
             $Type : 'UI.DataField',
             Label : 'Location',
             Value : location,
         },
+
         {
             $Type : 'UI.DataField',
             Label : 'Status',
@@ -128,4 +142,13 @@ annotate service.EmployeesSrv with {
             },
         ],
     }
+    
+};
+annotate service.EmployeesSrv with {
+    employee_id @Common.Label : 'Employee ID';
+    full_name   @Common.Label : 'Employee Name';
+    email       @Common.Label : 'Email';
+    phone       @Common.Label : 'Phone Number';
+    location    @Common.Label : 'Location';
+    status      @Common.Label : 'Status';
 };

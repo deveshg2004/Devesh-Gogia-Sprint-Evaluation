@@ -1,1 +1,161 @@
 /* Enter your custom styles here */
+/* =========================================================
+   MANAGER DASHBOARD
+   ========================================================= */
+
+.managerDashboardPage {
+    background: #f5f6f7;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
+
+.managerDashboardContent {
+    padding: 24px 32px;
+    gap: 18px;
+}
+
+
+/* =========================================================
+   WELCOME SECTION
+   ========================================================= */
+
+.managerHero {
+    width: 100%;
+    border-radius: 14px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    background: #ffffff;
+}
+
+.managerAvatar {
+    margin: 4px;
+}
+
+.managerHero .sapMPanelContent {
+    padding: 24px;
+}
+
+.managerWelcomeText .sapMTitle {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.managerWelcomeText .sapMText {
+    color: #64748b;
+    margin-top: 4px;
+}
+
+
+/* =========================================================
+   SECTION TITLES
+   ========================================================= */
+
+.sectionTitle {
+    margin-top: 8px;
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   KPI SECTION
+   ========================================================= */
+
+.managerKpiRow {
+    gap: 20px;
+}
+
+.managerKpiTile {
+    width: 220px;
+    min-height: 145px;
+    border-radius: 14px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease;
+}
+
+.managerKpiTile:hover {
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   CHART
+   ========================================================= */
+
+.managerChartPanel {
+    width: 100%;
+    margin-top: 8px;
+    border-radius: 14px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    background: #ffffff;
+}
+
+.managerChartPanel .sapMPanelHdr {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.managerChartPanel .sapMPanelContent {
+    padding: 16px;
+}
+
+
+/* =========================================================
+   QUICK NAVIGATION
+   ========================================================= */
+
+.managerNavigationRow {
+    gap: 20px;
+}
+
+.managerNavigationTile {
+    width: 210px;
+    min-height: 150px;
+    border-radius: 14px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease;
+}
+
+.managerNavigationTile:hover {
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   NAVIGATION ICONS
+   ========================================================= */
+
+.managerNavigationTile .sapMImageContent {
+    font-size: 32px;
+}
+
+.managerNavigationTile .sapMGTHdrTxt {
+    font-weight: 600;
+}
+
+.managerNavigationTile .sapMGTSubHdrTxt {
+    color: #64748b;
+}
+
+
+/* =========================================================
+   RESPONSIVE DESIGN
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .managerDashboardContent {
+        padding: 16px;
+    }
+
+    .managerKpiTile {
+        width: 200px;
+    }
+
+    .managerNavigationTile {
+        width: 200px;
+    }
+
+}

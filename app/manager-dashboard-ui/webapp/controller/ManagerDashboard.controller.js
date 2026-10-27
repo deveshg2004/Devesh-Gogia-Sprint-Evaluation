@@ -39,6 +39,7 @@ sap.ui.define([
                 };
 
                 const oModel = new JSONModel(oData);
+
                 this.getView().setModel(oModel);
 
                 const oVizFrame = this.byId("departmentBarChart");
@@ -48,10 +49,12 @@ sap.ui.define([
                         name: "Department",
                         value: "{Department}"
                     }],
+
                     measures: [{
                         name: "Assets",
                         value: "{Assets}"
                     }],
+
                     data: {
                         path: "/departments"
                     }
@@ -59,6 +62,7 @@ sap.ui.define([
 
                 oVizFrame.setDataset(oDataset);
                 oVizFrame.setModel(oModel);
+
 
                 oVizFrame.addFeed(new FeedItem({
                     uid: "valueAxis",
@@ -72,53 +76,84 @@ sap.ui.define([
                     values: ["Department"]
                 }));
 
+
                 oVizFrame.setVizProperties({
+
                     title: {
                         visible: false
                     },
+
+                    legend: {
+                        visible: true
+                    },
+
                     plotArea: {
                         dataLabel: {
                             visible: true,
                             type: "value"
                         }
                     },
+
                     valueAxis: {
                         title: {
                             visible: false
                         }
                     },
+
                     categoryAxis: {
                         title: {
                             visible: false
                         }
+                    },
+
+                    interaction: {
+                        selectability: {
+                            mode: "single"
+                        }
                     }
+
                 });
 
             },
 
+
             onAssetManagement() {
+
                 window.location.href =
-                "/asset.lifecycle.assetui/index.html";
+                    "/asset.lifecycle.assetui/index.html";
+
             },
+
 
             onEmployeeManagement() {
+
                 window.location.href =
-                "/asset.lifecycle.employeeui/index.html";
+                    "/asset.lifecycle.employeeui/index.html";
+
             },
+
 
             onAssignmentManagement() {
+
                 window.location.href =
-                "/asset.lifecycle.assetassignmentui/index.html";
+                    "/asset.lifecycle.assetassignmentui/index.html";
+
             },
+
 
             onMaintenanceManagement() {
+
                 window.location.href =
-                "/asset.lifecycle.maintenanceui/index.html";
+                    "/asset.lifecycle.maintenanceui/index.html";
+
             },
 
+
             onReportsExport() {
+
                 window.location.href =
-                "/asset.lifecycle.reportsui/index.html";
+                    "/asset.lifecycle.reportsui/index.html";
+
             }
 
         }

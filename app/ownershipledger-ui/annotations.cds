@@ -193,3 +193,11 @@ annotate service.OwnershipLedgersSrv with {
     }
 };
 
+
+annotate service.OwnershipLedgersSrv with {
+    ledger_id        @Common.Label : 'Ledger ID';
+    action           @Common.Label : 'Action';
+    transition_date  @Common.Label : 'Transition Date';
+    notes            @Common.Label : 'Notes';
+    created_at       @Common.Label : 'Created At';
+};

@@ -212,3 +212,13 @@ annotate service.AssetAssignmentsSrv with {
     }
 };
 
+annotate service.AssetAssignmentsSrv with {
+    assignment_id        @Common.Label : 'Assignment ID';
+    asset_asset_id       @Common.Label : 'Asset ID';
+    employee_employee_id @Common.Label : 'Employee ID';
+    assigned_by_employee_id @Common.Label : 'Assigned By Employee ID';
+    assigned_date        @Common.Label : 'Assigned Date';
+    expected_return_date @Common.Label : 'Expected Return Date';
+    assignment_status    @Common.Label : 'Assignment Status';
+    remarks              @Common.Label : 'Remarks';
+};

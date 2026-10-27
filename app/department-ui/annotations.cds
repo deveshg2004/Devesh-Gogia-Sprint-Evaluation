@@ -57,3 +57,9 @@ annotate service.DepartmentsSrv with @(
     ],
 );
 
+
+annotate service.DepartmentsSrv with {
+    dept_id     @Common.Label : 'Department ID';
+    name        @Common.Label : 'Department Name';
+    cost_center @Common.Label : 'Cost Center';
+};

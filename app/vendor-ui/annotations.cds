@@ -67,3 +67,9 @@ annotate service.VendorsSrv with @(
         },
     ],
 );
+
+annotate service.VendorsSrv with {
+    vendor_id @Common.Label : 'Vendor ID';
+    name      @Common.Label : 'Vendor Name';
+    email     @Common.Label : 'Email';
+};

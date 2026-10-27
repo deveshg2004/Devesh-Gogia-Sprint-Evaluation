@@ -15,7 +15,7 @@
                 id="dashboardVBox"
                 class="sapUiMediumMargin">
 
-
+                <!-- Dashboard KPIs -->
                 <Title
                     id="kpiTitle"
                     text="Dashboard KPIs"
@@ -26,146 +26,303 @@
                     justifyContent="SpaceAround"
                     wrap="Wrap">
 
+                    <!-- Total Assets -->
                     <GenericTile
                         id="tileTotalAssets"
                         header="Total Assets">
-                        <TileContent id="tcTotalAssets">
+
+                        <TileContent
+                            id="tcTotalAssets">
+
                             <NumericContent
                                 id="ncTotalAssets"
                                 value="15"
-                                valueColor="Good"/>
+                                valueColor="Good"
+                                icon="sap-icon://database"/>
+
                         </TileContent>
                     </GenericTile>
 
+
+                    <!-- Assigned Assets -->
                     <GenericTile
                         id="tileAssignedAssets"
                         header="Assigned Assets">
-                        <TileContent id="tcAssignedAssets">
+
+                        <TileContent
+                            id="tcAssignedAssets">
+
                             <NumericContent
                                 id="ncAssignedAssets"
                                 value="8"
-                                valueColor="Neutral"/>
+                                valueColor="Neutral"
+                                icon="sap-icon://employee-pane"/>
+
                         </TileContent>
                     </GenericTile>
 
+
+                    <!-- Available Assets -->
                     <GenericTile
                         id="tileAvailableAssets"
                         header="Available Assets">
-                        <TileContent id="tcAvailableAssets">
+
+                        <TileContent
+                            id="tcAvailableAssets">
+
                             <NumericContent
                                 id="ncAvailableAssets"
                                 value="4"
-                                valueColor="Good"/>
+                                valueColor="Good"
+                                icon="sap-icon://accept"/>
+
                         </TileContent>
                     </GenericTile>
 
+
+                    <!-- Under Maintenance -->
                     <GenericTile
                         id="tileMaintenance"
                         header="Under Maintenance">
-                        <TileContent id="tcMaintenance">
+
+                        <TileContent
+                            id="tcMaintenance">
+
                             <NumericContent
                                 id="ncMaintenance"
                                 value="2"
-                                valueColor="Critical"/>
+                                valueColor="Critical"
+                                icon="sap-icon://wrench"/>
+
                         </TileContent>
                     </GenericTile>
 
+
+                    <!-- Retired Assets -->
                     <GenericTile
                         id="tileRetired"
                         header="Retired Assets">
-                        <TileContent id="tcRetired">
+
+                        <TileContent
+                            id="tcRetired">
+
                             <NumericContent
                                 id="ncRetired"
                                 value="1"
-                                valueColor="Neutral"/>
+                                valueColor="Neutral"
+                                icon="sap-icon://decline"/>
+
                         </TileContent>
                     </GenericTile>
 
+
+                    <!-- Archived Assets -->
                     <GenericTile
                         id="tileArchived"
                         header="Archived Assets">
-                        <TileContent id="tcArchived">
+
+                        <TileContent
+                            id="tcArchived">
+
                             <NumericContent
                                 id="ncArchived"
                                 value="1"
-                                valueColor="Error"/>
+                                valueColor="Error"
+                                icon="sap-icon://archive"/>
+
                         </TileContent>
                     </GenericTile>
 
                 </HBox>
 
-<Title
-    id="categoryChartTitle"
-    text="Assets by Category"
-    level="H2"
-    class="sapUiMediumMarginTop"/>
 
-<viz:VizFrame
-    id="assetCategoryChart"
-    vizType="donut"
-    width="100%"
-    height="400px"/>
+                <!-- Assets by Category -->
+                <Title
+                    id="categoryChartTitle"
+                    text="Assets by Category"
+                    level="H2"
+                    class="sapUiMediumMarginTop"/>
 
+                <viz:VizFrame
+                    id="assetCategoryChart"
+                    vizType="donut"
+                    width="100%"
+                    height="400px"/>
+
+
+                <!-- Quick Navigation -->
                 <Title
                     id="navigationTitle"
                     text="Quick Navigation"
                     level="H2"
                     class="sapUiMediumMarginTop"/>
 
-<HBox
-    id="navigationTiles"
-    justifyContent="SpaceAround"
-    wrap="Wrap">
+                <HBox
+                    id="navigationTiles"
+                    justifyContent="SpaceAround"
+                    wrap="Wrap">
 
-    <GenericTile
-        id="navAssetTile"
-        header="Asset Management"
-        subheader="Manage Assets"
-        press=".onAssetManagement"/>
 
-    <GenericTile
-        id="navEmployeeTile"
-        header="Employee Management"
-        subheader="Manage Employees"
-        press=".onEmployeeManagement"/>
+                    <!-- Asset Management -->
+                    <GenericTile
+                        id="navAssetTile"
+                        header="Asset Management"
+                        subheader="Manage Assets"
+                        press=".onAssetManagement">
 
-    <GenericTile
-        id="navVendorTile"
-        header="Vendor Management"
-        subheader="Maintain Vendors"
-        press=".onVendorManagement"/>
+                        <TileContent
+                            id="navAssetTileContent">
 
-    <GenericTile
-        id="navAssignmentTile"
-        header="Asset Assignment"
-        subheader="Assign Assets"
-        press=".onAssignmentManagement"/>
+                            <ImageContent
+                                id="assetManagementIcon"
+                                src="sap-icon://laptop"
+                                description="Asset Management"/>
 
-    <GenericTile
-        id="navMaintenanceTile"
-        header="Maintenance"
-        subheader="Track Repairs"
-        press=".onMaintenanceManagement"/>
+                        </TileContent>
 
-    <GenericTile
-        id="navOwnershipTile"
-        header="Ownership Ledger"
-        subheader="Asset History"
-        press=".onOwnershipLedger"/>
+                    </GenericTile>
 
-    <GenericTile
-        id="navArchiveTile"
-        header="Archive Management"
-        subheader="Archived Assets"
-        press=".onArchiveManagement"/>
 
-    <GenericTile
-        id="navReportsTile"
-        header="Reports &amp; Export"
-        subheader="Business Reports"
-        press=".onReports"/>
+                    <!-- Employee Management -->
+                    <GenericTile
+                        id="navEmployeeTile"
+                        header="Employee Management"
+                        subheader="Manage Employees"
+                        press=".onEmployeeManagement">
 
-</HBox>
+                        <TileContent
+                            id="navEmployeeTileContent">
+
+                            <ImageContent
+                                id="employeeManagementIcon"
+                                src="sap-icon://employee"
+                                description="Employee Management"/>
+
+                        </TileContent>
+
+                    </GenericTile>
+
+
+                    <!-- Vendor Management -->
+                    <GenericTile
+                        id="navVendorTile"
+                        header="Vendor Management"
+                        subheader="Maintain Vendors"
+                        press=".onVendorManagement">
+
+                        <TileContent
+                            id="navVendorTileContent">
+
+                            <ImageContent
+                                id="vendorManagementIcon"
+                                src="sap-icon://supplier"
+                                description="Vendor Management"/>
+
+                        </TileContent>
+
+                    </GenericTile>
+
+
+                    <!-- Asset Assignment -->
+                    <GenericTile
+                        id="navAssignmentTile"
+                        header="Asset Assignment"
+                        subheader="Assign Assets"
+                        press=".onAssignmentManagement">
+
+                        <TileContent
+                            id="navAssignmentTileContent">
+
+                            <ImageContent
+                                id="assetAssignmentIcon"
+                                src="sap-icon://add-equipment"
+                                description="Asset Assignment"/>
+
+                        </TileContent>
+
+                    </GenericTile>
+
+
+                    <!-- Maintenance -->
+                    <GenericTile
+                        id="navMaintenanceTile"
+                        header="Maintenance"
+                        subheader="Track Repairs"
+                        press=".onMaintenanceManagement">
+
+                        <TileContent
+                            id="navMaintenanceTileContent">
+
+                            <ImageContent
+                                id="maintenanceIcon"
+                                src="sap-icon://wrench"
+                                description="Maintenance"/>
+
+                        </TileContent>
+
+                    </GenericTile>
+
+
+                    <!-- Ownership Ledger -->
+                    <GenericTile
+                        id="navOwnershipTile"
+                        header="Ownership Ledger"
+                        subheader="Asset History"
+                        press=".onOwnershipLedger">
+
+                        <TileContent
+                            id="navOwnershipTileContent">
+
+                            <ImageContent
+                                id="ownershipLedgerIcon"
+                                src="sap-icon://history"
+                                description="Ownership Ledger"/>
+
+                        </TileContent>
+
+                    </GenericTile>
+
+
+                    <!-- Archive Management -->
+                    <GenericTile
+                        id="navArchiveTile"
+                        header="Archive Management"
+                        subheader="Archived Assets"
+                        press=".onArchiveManagement">
+
+                        <TileContent
+                            id="navArchiveTileContent">
+
+                            <ImageContent
+                                id="archiveManagementIcon"
+                                src="sap-icon://folder-blank"
+                                description="Archive Management"/>
+
+                        </TileContent>
+
+                    </GenericTile>
+
+
+                    <!-- Reports & Export -->
+                    <GenericTile
+                        id="navReportsTile"
+                        header="Reports &amp; Export"
+                        subheader="Business Reports"
+                        press=".onReports">
+
+                        <TileContent
+                            id="navReportsTileContent">
+
+                            <ImageContent
+                                id="reportsExportIcon"
+                                src="sap-icon://business-objects-experience"
+                                description="Reports and Export"/>
+
+                        </TileContent>
+
+                    </GenericTile>
+
+                </HBox>
 
             </VBox>
 

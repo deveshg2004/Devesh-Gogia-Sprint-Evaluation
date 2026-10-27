@@ -247,3 +247,11 @@ annotate service.AssetsSrv with {
     }
 };
 
+annotate service.AssetsSrv with {
+    asset_id                  @Common.Label : 'Asset ID';
+    asset_tag                 @Common.Label : 'Asset Tag';
+    serial_number             @Common.Label : 'Serial Number';
+    model                     @Common.Label : 'Model';
+    purchase_cost             @Common.Label : 'Purchase Cost';
+    status                    @Common.Label : 'Status';
+};

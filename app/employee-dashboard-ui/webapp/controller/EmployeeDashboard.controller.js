@@ -14,6 +14,7 @@ sap.ui.define([
     return Controller.extend(
         "asset.lifecycle.employeedashboardui.controller.EmployeeDashboard",
         {
+
             onInit() {
                 const oData = {
                     assets: [
@@ -27,6 +28,7 @@ sap.ui.define([
                 this.getView().setModel(oModel);
 
                 const oVizFrame = this.byId("employeeAssetChart");
+
                 const oDataset = new FlattenedDataset({
                     dimensions: [{
                         name: "Asset Type",
@@ -36,7 +38,9 @@ sap.ui.define([
                         name: "Assigned",
                         value: "{Count}"
                     }],
-                    data: { path: "/assets" }
+                    data: {
+                        path: "/assets"
+                    }
                 });
 
                 oVizFrame.setDataset(oDataset);
@@ -55,7 +59,9 @@ sap.ui.define([
                 }));
 
                 oVizFrame.setVizProperties({
-                    title: { visible: false },
+                    title: {
+                        visible: false
+                    },
                     legend: {
                         visible: true,
                         alignment: "right"
@@ -72,18 +78,50 @@ sap.ui.define([
                         }
                     }
                 });
+
+                this._showSection("profile");
+            },
+
+            _showSection(sSection) {
+
+                const oProfile = this.byId("profileDetailsRow");
+                const oAssets = this.byId("assetsDetailsList");
+                const oMaintenance = this.byId("maintenanceDetailsList");
+
+                oProfile.setVisible(sSection === "profile");
+                oAssets.setVisible(sSection === "assets");
+                oMaintenance.setVisible(sSection === "maintenance");
+
+                const oProfileBtn = this.byId("profileBtn");
+                const oAssetsBtn = this.byId("assetsBtn");
+                const oMaintenanceBtn = this.byId("maintenanceBtn");
+
+                oProfileBtn.setType(
+                    sSection === "profile" ? "Emphasized" : "Default"
+                );
+
+                oAssetsBtn.setType(
+                    sSection === "assets" ? "Emphasized" : "Default"
+                );
+
+                oMaintenanceBtn.setType(
+                    sSection === "maintenance" ? "Emphasized" : "Default"
+                );
             },
 
             onMyProfile() {
                 this.byId("detailsPanel").setHeaderText("My Profile");
+                this._showSection("profile");
             },
 
             onMyAssets() {
                 this.byId("detailsPanel").setHeaderText("My Assets");
+                this._showSection("assets");
             },
 
             onMaintenanceHistory() {
                 this.byId("detailsPanel").setHeaderText("Maintenance History");
+                this._showSection("maintenance");
             }
         }
     );

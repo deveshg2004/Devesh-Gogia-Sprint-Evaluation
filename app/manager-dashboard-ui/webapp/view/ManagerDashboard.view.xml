@@ -6,125 +6,298 @@
 
     <Page
         id="managerDashboardPage"
-        title="Manager Dashboard">
+        title="Manager Dashboard"
+        class="managerDashboardPage">
 
         <content>
 
             <VBox
                 id="managerDashboardVBox"
-                class="sapUiMediumMargin">
+                class="managerDashboardContent">
+
+                <!-- Welcome Section -->
+                <Panel
+                    id="managerWelcomePanel"
+                    class="managerHero"
+                    expandable="false">
+
+                    <content>
+
+                        <HBox
+                            id="managerWelcomeRow"
+                            alignItems="Center"
+                            justifyContent="SpaceBetween"
+                            wrap="Wrap">
+
+                            <HBox
+                                id="managerWelcomeIdentity"
+                                alignItems="Center">
+
+                                <Avatar
+                                    id="managerAvatar"
+                                    initials="M"
+                                    displaySize="M"
+                                    class="managerAvatar"/>
+
+                                <VBox
+                                    id="managerWelcomeText"
+                                    class="sapUiSmallMarginBegin">
+
+                                    <Title
+                                        id="managerWelcomeTitle"
+                                        text="Welcome back, Manager!"
+                                        level="H2"/>
+
+                                    <Text
+                                        id="managerWelcomeSubtitle"
+                                        text="Here is an overview of your team's IT assets, employees and requests."/>
+
+                                </VBox>
+
+                            </HBox>
+
+                            <ObjectStatus
+                                id="managerStatus"
+                                text="Manager Access"
+                                state="Success"
+                                icon="sap-icon://manager"/>
+
+                        </HBox>
+
+                    </content>
+
+                </Panel>
 
 
+                <!-- Manager KPIs -->
                 <Title
                     id="managerKpiTitle"
-                    text="Manager KPIs"
-                    level="H1"/>
+                    text="Manager Overview"
+                    level="H2"
+                    class="sectionTitle"/>
 
                 <HBox
                     id="managerKpiHBox"
-                    justifyContent="SpaceAround"
+                    class="managerKpiRow"
+                    justifyContent="Start"
                     wrap="Wrap">
 
+                    <!-- Assets Assigned -->
                     <GenericTile
                         id="tileAssetsAssigned"
-                        header="Assets Assigned">
-                        <TileContent id="tcAssetsAssigned">
+                        header="Assets Assigned"
+                        class="managerKpiTile">
+
+                        <TileContent
+                            id="tcAssetsAssigned">
+
                             <NumericContent
                                 id="ncAssetsAssigned"
                                 value="8"
-                                valueColor="Good"/>
+                                valueColor="Good"
+                                icon="sap-icon://laptop"/>
+
                         </TileContent>
+
                     </GenericTile>
 
+
+                    <!-- Active Employees -->
                     <GenericTile
                         id="tileActiveEmployees"
-                        header="Active Employees">
-                        <TileContent id="tcActiveEmployees">
+                        header="Active Employees"
+                        class="managerKpiTile">
+
+                        <TileContent
+                            id="tcActiveEmployees">
+
                             <NumericContent
                                 id="ncActiveEmployees"
                                 value="10"
-                                valueColor="Good"/>
+                                valueColor="Good"
+                                icon="sap-icon://employee"/>
+
                         </TileContent>
+
                     </GenericTile>
 
+
+                    <!-- Maintenance Requests -->
                     <GenericTile
                         id="tileMaintenanceRequests"
-                        header="Maintenance Requests">
-                        <TileContent id="tcMaintenanceRequests">
+                        header="Maintenance Requests"
+                        class="managerKpiTile">
+
+                        <TileContent
+                            id="tcMaintenanceRequests">
+
                             <NumericContent
                                 id="ncMaintenanceRequests"
                                 value="2"
-                                valueColor="Critical"/>
+                                valueColor="Critical"
+                                icon="sap-icon://wrench"/>
+
                         </TileContent>
+
                     </GenericTile>
 
+
+                    <!-- Pending Returns -->
                     <GenericTile
                         id="tilePendingReturns"
-                        header="Pending Returns">
-                        <TileContent id="tcPendingReturns">
+                        header="Pending Returns"
+                        class="managerKpiTile">
+
+                        <TileContent
+                            id="tcPendingReturns">
+
                             <NumericContent
                                 id="ncPendingReturns"
                                 value="1"
-                                valueColor="Neutral"/>
+                                valueColor="Critical"
+                                icon="sap-icon://undo"/>
+
                         </TileContent>
+
                     </GenericTile>
 
                 </HBox>
 
-                <Title
-    id="managerChartTitle"
-    text="Assets Assigned by Department"
-    level="H2"
-    class="sapUiMediumMarginTop"/>
 
-<viz:VizFrame
-    id="departmentBarChart"
-    vizType="bar"
-    width="100%"
-    height="400px"/>
+                <!-- Department Asset Distribution -->
+                <Panel
+                    id="departmentChartPanel"
+                    headerText="Assets Assigned by Department"
+                    class="managerChartPanel"
+                    expandable="false">
 
+                    <content>
+
+                        <viz:VizFrame
+                            id="departmentBarChart"
+                            vizType="bar"
+                            width="100%"
+                            height="400px"/>
+
+                    </content>
+
+                </Panel>
+
+
+                <!-- Quick Navigation -->
                 <Title
                     id="managerNavigationTitle"
                     text="Quick Navigation"
                     level="H2"
-                    class="sapUiMediumMarginTop"/>
+                    class="sectionTitle"/>
 
-<HBox
-    id="managerNavigationTiles"
-    justifyContent="SpaceAround"
-    wrap="Wrap">
+                <HBox
+                    id="managerNavigationTiles"
+                    class="managerNavigationRow"
+                    justifyContent="Start"
+                    wrap="Wrap">
 
-    <GenericTile
-        id="managerNavAssetTile"
-        header="Asset Management"
-        subheader="Manage Assets"
-        press=".onAssetManagement"/>
 
-    <GenericTile
-        id="managerNavEmployeeTile"
-        header="Employee Management"
-        subheader="Manage Employees"
-        press=".onEmployeeManagement"/>
+                    <!-- Asset Management -->
+                    <GenericTile
+                        id="managerNavAssetTile"
+                        header="Asset Management"
+                        subheader="Manage Assets"
+                        class="managerNavigationTile"
+                        press=".onAssetManagement">
 
-    <GenericTile
-        id="managerNavAssignmentTile"
-        header="Asset Assignment"
-        subheader="Assign Assets"
-        press=".onAssignmentManagement"/>
+                        <TileContent
+                            id="managerAssetNavContent">
 
-    <GenericTile
-        id="managerNavMaintenanceTile"
-        header="Maintenance"
-        subheader="Track Repairs"
-        press=".onMaintenanceManagement"/>
+                            <ImageContent
+                                id="managerAssetNavIcon"
+                                src="sap-icon://laptop"/>
 
-    <GenericTile
-        id="managerNavReportsTile"
-        header="Reports &amp; Export"
-        subheader="Download PDF Reports"
-        press=".onReportsExport"/>
+                        </TileContent>
 
-</HBox>
+                    </GenericTile>
+
+
+                    <!-- Employee Management -->
+                    <GenericTile
+                        id="managerNavEmployeeTile"
+                        header="Employee Management"
+                        subheader="Manage Employees"
+                        class="managerNavigationTile"
+                        press=".onEmployeeManagement">
+
+                        <TileContent
+                            id="managerEmployeeNavContent">
+
+                            <ImageContent
+                                id="managerEmployeeNavIcon"
+                                src="sap-icon://employee"/>
+
+                        </TileContent>
+
+                    </GenericTile>
+
+
+                    <!-- Asset Assignment -->
+                    <GenericTile
+                        id="managerNavAssignmentTile"
+                        header="Asset Assignment"
+                        subheader="Assign Assets"
+                        class="managerNavigationTile"
+                        press=".onAssignmentManagement">
+
+                        <TileContent
+                            id="managerAssignmentNavContent">
+
+                            <ImageContent
+                                id="managerAssignmentNavIcon"
+                                src="sap-icon://add-equipment"/>
+
+                        </TileContent>
+
+                    </GenericTile>
+
+
+                    <!-- Maintenance -->
+                    <GenericTile
+                        id="managerNavMaintenanceTile"
+                        header="Maintenance"
+                        subheader="Track Repairs"
+                        class="managerNavigationTile"
+                        press=".onMaintenanceManagement">
+
+                        <TileContent
+                            id="managerMaintenanceNavContent">
+
+                            <ImageContent
+                                id="managerMaintenanceNavIcon"
+                                src="sap-icon://wrench"/>
+
+                        </TileContent>
+
+                    </GenericTile>
+
+
+                    <!-- Reports -->
+                    <GenericTile
+                        id="managerNavReportsTile"
+                        header="Reports &amp; Export"
+                        subheader="Download Reports"
+                        class="managerNavigationTile"
+                        press=".onReportsExport">
+
+                        <TileContent
+                            id="managerReportsNavContent">
+
+                            <ImageContent
+                                id="managerReportsNavIcon"
+                                src="sap-icon://excel-attachment"/>
+
+                        </TileContent>
+
+                    </GenericTile>
+
+                </HBox>
 
             </VBox>
 

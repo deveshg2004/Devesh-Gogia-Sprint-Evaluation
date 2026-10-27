@@ -153,3 +153,10 @@ annotate service.ArchiveRecordsSrv with {
     }
 };
 
+annotate service.ArchiveRecordsSrv with {
+    archive_id        @Common.Label : 'Archive ID';
+    archived_at       @Common.Label : 'Archived At';
+    reason            @Common.Label : 'Reason';
+    disposal_method   @Common.Label : 'Disposal Method';
+    disposal_cert_no  @Common.Label : 'Disposal Certificate Number';
+};

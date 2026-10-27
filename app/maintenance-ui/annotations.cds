@@ -214,3 +214,15 @@ annotate service.MaintenanceRecordsSrv with {
     }
 };
 
+annotate service.MaintenanceRecordsSrv with {
+    maintenance_id       @Common.Label : 'Maintenance ID';
+    type                  @Common.Label : 'Maintenance Type';
+    reported_date         @Common.Label : 'Reported Date';
+    completed_date        @Common.Label : 'Completed Date';
+    status                @Common.Label : 'Status';
+    outcome               @Common.Label : 'Outcome';
+    cost                  @Common.Label : 'Cost';
+    covered_by_warranty   @Common.Label : 'Covered By Warranty';
+    next_due_date         @Common.Label : 'Next Due Date';
+    description           @Common.Label : 'Description';
+};
