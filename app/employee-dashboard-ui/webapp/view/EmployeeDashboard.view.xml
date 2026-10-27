@@ -6,129 +6,95 @@
 
     <Page
         id="employeeDashboardPage"
-        title="Employee Dashboard">
+        title="Employee Dashboard"
+        class="employeeDashboardPage">
 
         <content>
+            <VBox id="employeeDashboardVBox" class="employeeDashboardContent">
 
-            <VBox
-                id="employeeDashboardVBox"
-                class="sapUiMediumMargin">
+                <Panel id="welcomePanel" class="dashboardHero" expandable="false">
+                    <content>
+                        <HBox id="welcomeRow" alignItems="Center" justifyContent="SpaceBetween" wrap="Wrap">
+                            <HBox id="welcomeIdentity" alignItems="Center">
+                                <Avatar id="employeeAvatar" initials="RS" displaySize="M" class="employeeAvatar"/>
+                                <VBox id="welcomeText" class="sapUiSmallMarginBegin">
+                                    <Title id="welcomeTitle" text="Welcome back, Rahul!" level="H2"/>
+                                    <Text id="welcomeSubtitle" text="Here is a quick overview of your IT assets and requests."/>
+                                </VBox>
+                            </HBox>
+                            <ObjectStatus id="employeeStatus" text="Active Employee" state="Success" icon="sap-icon://accept"/>
+                        </HBox>
+                    </content>
+                </Panel>
 
-                <Title
-                    id="employeeAccessTitle"
-                    text="Quick Access"
-                    level="H2"/>
-
-                <HBox
-                    id="employeeNavigationBar"
-                    justifyContent="Center"
-                    class="sapUiMediumMarginBottom">
-
-                    <Button
-                        id="profileBtn"
-                        text="My Profile"
-                        press="onMyProfile"
-                        type="Emphasized"
-                        class="sapUiTinyMarginEnd"/>
-
-                    <Button
-                        id="assetsBtn"
-                        text="My Assets"
-                        press="onMyAssets"
-                        class="sapUiTinyMarginEnd"/>
-
-                    <Button
-                        id="maintenanceBtn"
-                        text="Maintenance History"
-                        press="onMaintenanceHistory"/>
-
+                <Title id="quickAccessTitle" text="Quick Access" level="H2" class="sectionTitle"/>
+                <HBox id="employeeNavigationBar" class="quickAccessRow" wrap="Wrap" justifyContent="Start">
+                    <Button id="profileBtn" text="My Profile" icon="sap-icon://employee" press="onMyProfile" type="Emphasized" class="quickAccessButton"/>
+                    <Button id="assetsBtn" text="My Assets" icon="sap-icon://laptop" press="onMyAssets" type="Default" class="quickAccessButton"/>
+                    <Button id="maintenanceBtn" text="Maintenance History" icon="sap-icon://wrench" press="onMaintenanceHistory" type="Default" class="quickAccessButton"/>
                 </HBox>
 
-                <!-- <MessageStrip
-                    id="employeeInfoStrip"
-                    text="Select an option from Quick Access to view details."
-                    type="Information"
-                    showIcon="true"
-                    class="sapUiMediumMarginBottom"/> -->
+                <Panel id="detailsPanel" headerText="Employee Details" class="detailsPanel" expandable="false">
+                    <content>
+                        <HBox id="profileDetailsRow" wrap="Wrap" class="profileDetailsRow">
+                            <VBox class="profileField">
+                                <Label text="Employee"/>
+                                <Text text="Rahul Sharma"/>
+                            </VBox>
+                            <VBox class="profileField">
+                                <Label text="Email"/>
+                                <Text text="rahul.sharma@company.com"/>
+                            </VBox>
+                            <VBox class="profileField">
+                                <Label text="Department"/>
+                                <Text text="IT"/>
+                            </VBox>
+                            <VBox class="profileField">
+                                <Label text="Location"/>
+                                <Text text="Bangalore"/>
+                            </VBox>
+                        </HBox>
+                    </content>
+                </Panel>
 
-                <Title
-                    id="contentTitle"
-                    text="Welcome"
-                    level="H3"/>
-
-                <Text
-                    id="contentText"
-                    wrapping="true"
-                    text="Choose My Profile, My Assets, or Maintenance History."/>
-
-                <Title
-                    id="employeeKpiTitle"
-                    text="My Dashboard"
-                    level="H2"
-                    class="sapUiMediumMarginTop"/>
-
-                <HBox
-                    id="employeeKpiHBox"
-                    justifyContent="SpaceAround"
-                    wrap="Wrap">
-
-                    <GenericTile
-                        id="tileAssignedAssets"
-                        header="My Assets">
-
+                <Title id="employeeKpiTitle" text="My Overview" level="H2" class="sectionTitle"/>
+                <HBox id="employeeKpiHBox" class="kpiRow" wrap="Wrap" justifyContent="Start">
+                    <GenericTile id="tileAssignedAssets" header="My Assets" class="kpiTile">
                         <TileContent id="tcAssignedAssets">
-                            <NumericContent
-                                id="ncAssignedAssets"
-                                value="3"
-                                valueColor="Good"/>
+                            <NumericContent id="ncAssignedAssets" value="3" valueColor="Good" icon="sap-icon://laptop"/>
                         </TileContent>
-
                     </GenericTile>
-
-                    <GenericTile
-                        id="tilePendingReturns"
-                        header="Pending Returns">
-
+                    <GenericTile id="tilePendingReturns" header="Pending Returns" class="kpiTile">
                         <TileContent id="tcPendingReturns">
-                            <NumericContent
-                                id="ncPendingReturns"
-                                value="1"
-                                valueColor="Critical"/>
+                            <NumericContent id="ncPendingReturns" value="1" valueColor="Critical" icon="sap-icon://undo"/>
                         </TileContent>
-
                     </GenericTile>
-
-                    <GenericTile
-                        id="tileMaintenanceRequests"
-                        header="Maintenance Requests">
-
+                    <GenericTile id="tileMaintenanceRequests" header="Maintenance Requests" class="kpiTile">
                         <TileContent id="tcMaintenanceRequests">
-                            <NumericContent
-                                id="ncMaintenanceRequests"
-                                value="1"
-                                valueColor="Neutral"/>
+                            <NumericContent id="ncMaintenanceRequests" value="1" valueColor="Neutral" icon="sap-icon://wrench"/>
                         </TileContent>
-
                     </GenericTile>
-
                 </HBox>
 
-                <Title
-                    id="myAssetsTitle"
-                    text="My Asset Distribution"
-                    level="H2"
-                    class="sapUiMediumMarginTop"/>
+                <HBox id="dashboardLowerRow" wrap="Wrap" justifyContent="SpaceBetween" alignItems="Stretch">
+                    <Panel id="assetDistributionPanel" headerText="My Asset Distribution" class="chartPanel" expandable="false">
+                        <content>
+                            <viz:VizFrame id="employeeAssetChart" vizType="donut" width="100%" height="360px"/>
+                        </content>
+                    </Panel>
 
-                <viz:VizFrame
-                    id="employeeAssetChart"
-                    vizType="donut"
-                    width="100%"
-                    height="400px"/>
+                    <Panel id="activityPanel" headerText="Recent Activity" class="activityPanel" expandable="false">
+                        <content>
+                            <List id="activityList" showSeparators="Inner">
+                                <StandardListItem title="Laptop LAP001 assigned" description="Asset assignment completed" icon="sap-icon://laptop"/>
+                                <StandardListItem title="Maintenance request opened" description="LAP001 · Battery replacement" icon="sap-icon://wrench"/>
+                                <StandardListItem title="Monitor MON001 serviced" description="Display issue resolved" icon="sap-icon://accept"/>
+                            </List>
+                        </content>
+                    </Panel>
+                </HBox>
 
             </VBox>
-
         </content>
-
     </Page>
-
 </mvc:View>
