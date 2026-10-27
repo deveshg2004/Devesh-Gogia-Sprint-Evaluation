@@ -114,6 +114,11 @@ sap.ui.define([
             onMaintenanceManagement() {
                 window.location.href =
                 "/asset.lifecycle.maintenanceui/index.html";
+            },
+
+            onReportsExport() {
+                window.location.href =
+                "/asset.lifecycle.reportsui/index.html";
             }
 
         }
