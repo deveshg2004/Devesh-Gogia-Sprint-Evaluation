@@ -118,6 +118,12 @@
         subheader="Track Repairs"
         press=".onMaintenanceManagement"/>
 
+    <GenericTile
+        id="managerNavReportsTile"
+        header="Reports &amp; Export"
+        subheader="Download PDF Reports"
+        press=".onReportsExport"/>
+
 </HBox>
 
             </VBox>
