@@ -1,3 +1,27 @@
+# 💻 IT Asset Lifecycle Manager
+
+A SAP-based application for managing IT assets throughout their complete lifecycle, from procurement to retirement.
+
+## 🛠️ Technology
+
+- SAP CAP
+- SAP Fiori
+- SAP HANA
+- SAP BTP
+- XSUAA
+- Node.js
+- Git & GitHub
+
+## 👥 User Roles
+
+- 👑 **Admin** – Full access to manage assets and administrative activities.
+- 🧑‍💼 **Manager** – Manage operational activities, assets and reports.
+- 👤 **Employee** – View assigned assets and related information.
+
+## 🎯 Project Purpose
+
+The application provides centralized asset tracking, maintains ownership history, supports maintenance and prevents accidental loss of important asset records through archiving.
+
 # Getting Started
 
 Welcome to your new CAP project.
