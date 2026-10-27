@@ -44,7 +44,10 @@ service AssetLifecycleService {
     @(requires: ['Admin','Manager'])
     entity AssetCategoriesSrv as projection on db.AssetCategory;
 
-    @(requires: ['Admin','Manager'])
+    @restrict: [
+        { grant: 'READ', to: ['Admin', 'Manager'] },
+        { grant: ['CREATE', 'UPDATE', 'DELETE'], to: 'Admin' }
+    ]
     entity AssetsSrv as projection on db.Asset;
 
     @(requires: ['Admin','Manager'])
