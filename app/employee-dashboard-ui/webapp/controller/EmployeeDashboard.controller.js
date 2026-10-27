@@ -14,23 +14,12 @@ sap.ui.define([
     return Controller.extend(
         "asset.lifecycle.employeedashboardui.controller.EmployeeDashboard",
         {
-
             onInit() {
-
                 const oData = {
                     assets: [
-                        {
-                            AssetType: "Laptop",
-                            Count: 1
-                        },
-                        {
-                            AssetType: "Monitor",
-                            Count: 1
-                        },
-                        {
-                            AssetType: "Mobile",
-                            Count: 1
-                        }
+                        { AssetType: "Laptop", Count: 1 },
+                        { AssetType: "Monitor", Count: 1 },
+                        { AssetType: "Mobile", Count: 1 }
                     ]
                 };
 
@@ -38,7 +27,6 @@ sap.ui.define([
                 this.getView().setModel(oModel);
 
                 const oVizFrame = this.byId("employeeAssetChart");
-
                 const oDataset = new FlattenedDataset({
                     dimensions: [{
                         name: "Asset Type",
@@ -48,9 +36,7 @@ sap.ui.define([
                         name: "Assigned",
                         value: "{Count}"
                     }],
-                    data: {
-                        path: "/assets"
-                    }
+                    data: { path: "/assets" }
                 });
 
                 oVizFrame.setDataset(oDataset);
@@ -69,71 +55,36 @@ sap.ui.define([
                 }));
 
                 oVizFrame.setVizProperties({
-                    title: {
-                        visible: false
-                    },
+                    title: { visible: false },
                     legend: {
-                        visible: true
+                        visible: true,
+                        alignment: "right"
                     },
                     plotArea: {
                         dataLabel: {
                             visible: true,
                             type: "value"
                         }
+                    },
+                    interaction: {
+                        selectability: {
+                            mode: "single"
+                        }
                     }
                 });
-
-                // Default content
-
-                this.byId("contentTitle").setText("My Profile");
-
-                this.byId("contentText").setText(
-                    "Employee Name : Rahul Sharma\n" +
-                    "Email : rahul.sharma@company.com\n" +
-                    "Department : IT\n" +
-                    "Location : Bangalore\n" +
-                    "Status : Active"
-                );
-
             },
 
             onMyProfile() {
-
-                this.byId("contentTitle").setText("My Profile");
-
-                this.byId("contentText").setText(
-                    "Employee Name : Rahul Sharma\n" +
-                    "Email : rahul.sharma@company.com\n" +
-                    "Department : IT\n" +
-                    "Location : Bangalore\n" +
-                    "Status : Active"
-                );
-
+                this.byId("detailsPanel").setHeaderText("My Profile");
             },
 
             onMyAssets() {
-
-                this.byId("contentTitle").setText("My Assets");
-
-                this.byId("contentText").setText(
-                    "Laptop  - LAP001\n" +
-                    "Monitor - MON001\n" +
-                    "Mobile  - MOB001"
-                );
-
+                this.byId("detailsPanel").setHeaderText("My Assets");
             },
 
             onMaintenanceHistory() {
-
-                this.byId("contentTitle").setText("Maintenance History");
-
-                this.byId("contentText").setText(
-                    "LAP001 - Battery Replacement\n" +
-                    "MON001 - Display Issue Resolved"
-                );
-
+                this.byId("detailsPanel").setHeaderText("Maintenance History");
             }
-
         }
     );
 });
