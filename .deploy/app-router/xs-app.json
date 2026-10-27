@@ -7,6 +7,28 @@
   },
   "routes": [
     {
+      "source": "^/asset\\.lifecycle\\.reportsui/(.*)$",
+      "target": "/asset.lifecycle.reportsui/$1",
+      "destination": "srv-api",
+      "authenticationType": "xsuaa",
+      "scope": [
+        "$XSAPPNAME.Admin",
+        "$XSAPPNAME.Manager"
+      ],
+      "csrfProtection": true
+    },
+    {
+      "source": "^/asset\\.lifecycle\\.assetui/(.*)$",
+      "target": "/asset.lifecycle.assetui/$1",
+      "destination": "srv-api",
+      "authenticationType": "xsuaa",
+      "scope": [
+        "$XSAPPNAME.Admin",
+        "$XSAPPNAME.Manager"
+      ],
+      "csrfProtection": true
+    },
+    {
       "source": "^/asset\\.lifecycle\\.dashboardui/(.*)$",
       "target": "/asset.lifecycle.dashboardui/$1",
       "destination": "srv-api",

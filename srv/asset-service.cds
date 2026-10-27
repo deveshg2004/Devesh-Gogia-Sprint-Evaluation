@@ -44,7 +44,10 @@ service AssetLifecycleService {
     @(requires: ['Admin','Manager'])
     entity AssetCategoriesSrv as projection on db.AssetCategory;
 
-    @(requires: 'Admin')
+    @restrict: [
+        { grant: 'READ', to: ['Admin', 'Manager'] },
+        { grant: ['CREATE', 'UPDATE', 'DELETE'], to: 'Admin' }
+    ]
     entity AssetsSrv as projection on db.Asset;
 
     @(requires: ['Admin','Manager'])
@@ -134,7 +137,7 @@ service AssetLifecycleService {
         employee_id : UUID
     ) returns String;
 
-    // Asset CRUD
+    // Asset CRUD remains Admin-only; Manager is allowed to read the asset inventory.
 
     @(requires: 'Admin')
     action createAsset(
