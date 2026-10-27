@@ -3,5 +3,8 @@
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m">
     <App id="app">
+        <pages>
+            <mvc:XMLView viewName="asset.lifecycle.managerdashboardui.view.ManagerDashboard"/>
+        </pages>
     </App>
 </mvc:View>
