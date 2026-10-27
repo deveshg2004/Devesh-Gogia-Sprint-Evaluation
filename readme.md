@@ -2,45 +2,54 @@
 
 A SAP-based application for managing IT assets throughout their complete lifecycle, from procurement to retirement.
 
-## 🛠️ Technology
+## 🎯 Project Overview
 
-- SAP CAP
-- SAP Fiori
-- SAP HANA
-- SAP BTP
-- XSUAA
-- Node.js
-- Git & GitHub
+The IT Asset Lifecycle Manager provides a centralized and secure system for tracking hardware assets, managing ownership and assignments, recording maintenance activities, maintaining historical records, and supporting controlled asset retirement and archiving.
+
+## ✨ Key Features
+
+- 📦 **Asset Lifecycle Tracking** – Track assets from procurement through assignment, maintenance, and retirement.
+- 🔄 **Ownership Management** – Maintain a traceable history of asset ownership and assignment transitions.
+- 🛠️ **Maintenance Tracking** – Record maintenance activities and operational updates.
+- 🗄️ **Historical Archiving** – Preserve important lifecycle and retirement records and prevent accidental deletion.
+- 🔐 **Role-Based Access Control (RBAC)** – Control access based on user roles and provide different dashboard permissions for Admin, Manager, and Employee users.
+- 📊 **Role-Based Dashboards** – Dedicated dashboards for managing and viewing asset-related information according to the user's role.
 
 ## 👥 User Roles
 
-- 👑 **Admin** – Full access to manage assets and administrative activities.
-- 🧑‍💼 **Manager** – Manage operational activities, assets and reports.
+- 👑 **Admin** – Full access to assets, departments, vendors, assignments, maintenance, reports, and administrative activities.
+- 🧑‍💼 **Manager** – Access to operational activities, asset assignments, maintenance records, and reports.
 - 👤 **Employee** – View assigned assets and related information.
 
-## 🎯 Project Purpose
+## 🛠️ Technology Stack
 
-The application provides centralized asset tracking, maintains ownership history, supports maintenance and prevents accidental loss of important asset records through archiving.
+- SAP CAP (Cloud Application Programming Model)
+- SAP Fiori
+- SAP HANA Cloud
+- SAP BTP
+- XSUAA
+- Node.js
+- OData V4
+- Git & GitHub
 
-# Getting Started
+## 🔐 Security
 
-Welcome to your new CAP project.
+The application implements **Role-Based Access Control (RBAC)** using SAP BTP authentication and authorization services. Users are identified by their assigned roles, and dashboard access is controlled accordingly.
 
-It contains these folders and files, following our recommended project layout:
+## 🚀 Deployment
 
-File or Folder | Purpose
----------|----------
-`app/` | content for UI frontends goes here
-`db/` | your domain models and data go here
-`srv/` | your service models and code go here
-`readme.md` | this getting started guide
+The application is **deployed on SAP Business Technology Platform (SAP BTP)** and can be accessed through the deployed application environment.
 
-## Next Steps
+## 📁 Project Structure
 
-- Open a new terminal and run `cds watch`
-- (in VS Code simply choose _**Terminal** > Run Task > cds watch_)
-- Start with your domain model, in a CDS file in `db/`
+| Folder/File | Purpose |
+|---|---|
+| `app/` | SAP Fiori/UI applications |
+| `db/` | CDS data models and database definitions |
+| `srv/` | CAP services, business logic, and service definitions |
+| `mta.yaml` | Multi-Target Application deployment configuration |
+| `xs-security.json` | Security and role configuration |
 
-## Learn More
+## 📌 Project Objective
 
-Learn more at <https://cap.cloud.sap>.
+The project aims to improve IT asset visibility, reduce manual tracking, maintain reliable ownership history, support compliance, and provide secure role-based access to asset lifecycle operations.
