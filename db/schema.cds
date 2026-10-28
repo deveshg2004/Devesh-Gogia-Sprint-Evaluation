@@ -2,6 +2,7 @@ using { asset.lifecycle as common } from './common';
 
 namespace asset.lifecycle;
 
+// Stores information about company departments
 entity Department {
     key dept_id      : UUID;
         name         : String(80);
@@ -9,8 +10,8 @@ entity Department {
         employees    : Association to many Employee on employees.department = $self;
 }
 
+// Stores employee details and their department
 entity Employee {
-
     key employee_id : UUID;
         full_name   : String(100);
         email       : String(100);
@@ -19,14 +20,14 @@ entity Employee {
         status      : common.EmployeeStatus;
         department  : Association to Department;
 }
-
+// Defines different categories of IT assets
 entity AssetCategory {
     key asset_category_id : UUID;
         name              : String(50);
         lifespan_months   : Integer;
         assets            : Association to many Asset on assets.assetCategory = $self;
 }
-
+// Stores vendor information
 entity Vendor {
     key vendor_id : UUID;
         name      : String(100);
@@ -34,6 +35,7 @@ entity Vendor {
         assets    : Association to many Asset on assets.vendor = $self;
 }
 
+// Stores IT asset information
 entity Asset {
     key asset_id                 : UUID;
         asset_tag                : String(20);
@@ -49,6 +51,7 @@ entity Asset {
         current_holder           : Association to Employee;
 }
 
+// Tracks assignment of assets
 entity AssetAssignment {
     key assignment_id            : UUID;
         asset                    : Association to Asset;
@@ -61,6 +64,7 @@ entity AssetAssignment {
         remarks                  : String(500);
 }
 
+// Maintains the history of ownership/asset transfers
 entity OwnershipLedger {
     key ledger_id                : UUID;
         asset                    : Association to Asset;
@@ -73,6 +77,7 @@ entity OwnershipLedger {
         created_at               : Timestamp;
 }
 
+// Stores maintenance and service history of assets
 entity MaintenanceRecord {
     key maintenance_id           : UUID;
         asset                    : Association to Asset;
@@ -89,6 +94,8 @@ entity MaintenanceRecord {
         description              : String(1000);
 }
 
+
+// Stores retired/archived asset information
 entity ArchiveRecord {
     key archive_id               : UUID;
         asset                    : Association to Asset;
