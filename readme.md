@@ -1,48 +1,35 @@
-# 💻 IT Asset Lifecycle Manager
+<div align="center">
 
-A SAP-based application for managing IT assets throughout their complete lifecycle, from procurement to retirement.
+# 🖥️ IT Asset Lifecycle Manager
 
-## 🎯 Project Overview
+### 🚀 Enterprise IT Asset Lifecycle Management on SAP BTP
 
-The IT Asset Lifecycle Manager provides a centralized and secure system for tracking hardware assets, managing ownership and assignments, recording maintenance activities, maintaining historical records, and supporting controlled asset retirement and archiving.
+**Done by: Devesh Gogia**  
+**Employee ID: 30193839**
 
-## 🔐 Security
+<p align="center">
+  <img src="https://img.shields.io/badge/SAP%20BTP-0FAAFF?style=for-the-badge&logo=sap&logoColor=white"/>
+  <img src="https://img.shields.io/badge/SAP%20CAP-0FAAFF?style=for-the-badge&logo=sap&logoColor=white"/>
+  <img src="https://img.shields.io/badge/SAPUI5-0FAAFF?style=for-the-badge&logo=sap&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Fiori-0FAAFF?style=for-the-badge&logo=sap&logoColor=white"/>
+</p>
 
-The application implements **Role-Based Access Control (RBAC)** using SAP BTP authentication and authorization services. Users are identified by their assigned roles, and dashboard access is controlled accordingly.
+<p align="center">
+  <img src="https://img.shields.io/badge/SAP%20HANA-0FAAFF?style=for-the-badge&logo=sap&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white"/>
+  <img src="https://img.shields.io/badge/OData%20V4-0FAAFF?style=for-the-badge&logo=sap&logoColor=white"/>
+  <img src="https://img.shields.io/badge/XSUAA-0FAAFF?style=for-the-badge&logo=sap&logoColor=white"/>
+</p>
 
-## 👥 User Roles
+<p align="center">
+  <img src="https://img.shields.io/badge/RBAC-6A1B9A?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/App%20Router-0FAAFF?style=for-the-badge&logo=sap&logoColor=white"/>
+  <img src="https://img.shields.io/badge/MTA%20Deployment-0FAAFF?style=for-the-badge&logo=sap&logoColor=white"/>
+  <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"/>
+</p>
 
-- 👑 **Admin** – Full access to assets, departments, vendors, assignments, maintenance, reports, and administrative activities.
-- 🧑‍💼 **Manager** – Access to operational activities, asset assignments, maintenance records, and reports.
-- 👤 **Employee** – View assigned assets and related information.
+---
 
+### 🔐 Secure • Role-Based • Cloud Deployed • Enterprise Ready
 
-## 🚀 Deployment
-
-The application is **deployed on SAP Business Technology Platform (SAP BTP)** and can be accessed through the deployed application environment.
-
-
-## 🛠️ Technology Stack
-
-- SAP CAP (Cloud Application Programming Model)
-- SAP Fiori
-- SAP HANA Cloud
-- SAP BTP
-- XSUAA
-- Node.js
-- OData V4
-- Git & GitHub
-
-## 📁 Project Structure
-
-| Folder/File | Purpose |
-|---|---|
-| `app/` | SAP Fiori/UI applications |
-| `db/` | CDS data models and database definitions |
-| `srv/` | CAP services, business logic, and service definitions |
-| `mta.yaml` | Multi-Target Application deployment configuration |
-| `xs-security.json` | Security and role configuration |
-
-## 📌 Project Objective
-
-The project aims to improve IT asset visibility, reduce manual tracking, maintain reliable ownership history, support compliance, and provide secure role-based access to asset lifecycle operations.
+</div>
