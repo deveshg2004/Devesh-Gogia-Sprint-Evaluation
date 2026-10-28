@@ -4,7 +4,7 @@
 
 ### 🚀 Enterprise IT Asset Lifecycle Management on SAP BTP
 
-**Done by: Devesh Gogia**  
+### Done by: Devesh Gogia  
 
 
 ### ✅ Deployed on SAP BTP &nbsp; | &nbsp; 🔐 RBAC Implemented
